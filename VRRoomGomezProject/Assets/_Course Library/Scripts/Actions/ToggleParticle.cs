@@ -26,6 +26,7 @@ public class ToggleParticle : MonoBehaviour
 
     public void PlayWithExclusivity(MonoBehaviour owner)
     {
+        Debug.Log("PlayWithExclusivity called");
         if(currentOwner == null)
         {
             currentOwner = this;
@@ -35,11 +36,14 @@ public class ToggleParticle : MonoBehaviour
 
     public void StopWithExclusivity(MonoBehaviour owner)
     {
-        if(currentOwner == this)
+        Debug.Log("StopWIthExclusivity called");
+        if (currentOwner == this)
         {
             currentOwner = null;
             Stop();
         }
+        else
+            Debug.Log("stop failed");
     }
 
     private void OnValidate()
